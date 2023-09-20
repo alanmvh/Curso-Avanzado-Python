@@ -151,9 +151,10 @@ def test_increase_1_000_000_times():
 ```
 
 Results:
+
 ![Exercise6](images/exercise_6.png)
 
-# 'cProfile' visualization with 'snakeviz'
+# 'cProfile' visualization with 'snakeviz' - 07
 
 Modify your code to analize calls to other functions or methods:
 
@@ -193,14 +194,18 @@ I had to execute just the function 'def test_exercise_7()' in 'serie_1_test.py't
 Determines which lines of code have `100` and `50` calls (`ncalls`).
 
 Result:
+
 ![Exercise7](images/exercise_7.png)
 
 Sunburst style - Data vizualization of 'ncalls':
+
 ![Sunburst](images/exercise_7_sunburst.png)
 
 Increase method 'ncalls' and execution time:
+
 ![TimeInc](images/exercise_7_inc.png)
 
 Decrease method 'ncalls' and execution time:
+
 ![TimeDec](images/exercise_7_dec.png)
 
