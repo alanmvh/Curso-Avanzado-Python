@@ -1,4 +1,4 @@
-# Curso-Avanzado-Python
+# Advanced programming python course
 
 This repo contains series of exercises requested by our mentor explaining topics like:
 > Benchmarking and profile making
