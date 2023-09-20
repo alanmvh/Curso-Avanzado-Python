@@ -46,7 +46,7 @@ def test_exercise_2():
 
 This exercise has been added as unit test in serie_1_test.py - `test_exercise_2`
 
-## __str__ method - 03
+## `__str__` method - 03
 Inside the class `Counter` customize the method `__str__` that returns a text with `count` value using the following format:
 
 `return "COUNTER: {}".format(self.count)`
