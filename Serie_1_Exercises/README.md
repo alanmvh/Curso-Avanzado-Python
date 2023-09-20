@@ -197,15 +197,15 @@ Result:
 
 ![Exercise7](images/exercise_7.png)
 
-Sunburst style - Data vizualization of `ncalls`:
+Sunburst style - Data vizualization:
 
 ![Sunburst](images/exercise_7_sunburst.png)
 
-Increase method `ncalls` and execution time:
+Increase method execution time:
 
 ![TimeInc](images/exercise_7_inc.png)
 
-Decrease method `ncalls` and execution time:
+Decrease method execution time:
 
 ![TimeDec](images/exercise_7_dec.png)
 
