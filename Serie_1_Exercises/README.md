@@ -66,7 +66,7 @@ assert str(var_counter) == "COUNTER: 100"
 
 This exercise has been added as unit test in serie_1_test.py - `test_exercise_3`
 
-# Unit testing - 04
+## Unit testing - 04
 
 Define several methods to test `count` that increases/decreases repetitively using loops/iterators
 
@@ -109,7 +109,7 @@ def increase_2_000_000_times(): # Function that increases 2 million times variab
 Results `python -m pytest serie_1_test.py`:
 ![UnitTest](images/CMD_Result.png)
 
-# Function performance - 05
+## Function performance - 05
 
 Create a unit test that receives `benchmark` that allows you to measure execution time of a function that acts over `count` variable:
 
@@ -132,7 +132,7 @@ def test_benchmark(benchmark):
 
 ![Exercise5](images/exercise_5.png)
 
-# Code analysis with `CProfile`
+## Code analysis with `CProfile`
 
 Create a code that increases the `count` 1 million times and analyze the execution with `CProfile`
 
@@ -154,7 +154,7 @@ Results:
 
 ![Exercise6](images/exercise_6.png)
 
-# `cProfile` visualization with `snakeviz` - 07
+## `cProfile` visualization with `snakeviz` - 07
 
 Modify your code to analize calls to other functions or methods:
 
