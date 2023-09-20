@@ -132,7 +132,7 @@ def test_benchmark(benchmark):
 
 ![Exercise5](images/exercise_5.png)
 
-## Code analysis with `CProfile`
+## Code analysis with `CProfile` - 06
 
 Create a code that increases the `count` 1 million times and analyze the execution with `CProfile`
 
