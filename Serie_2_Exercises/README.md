@@ -294,6 +294,7 @@ ax2 = plt.figure().add_subplot(projection='3d')
 ax2.plot_surface(X2, Y2, Z2)
 ```
 * How does it look like when you apply the following expression -` Z[i][j] = np.exp(-1e-3 * (x[i] ** 2 + y[j] ** 2))`
+
 Result:
 
 ![image](images/graphxyz2.png)
