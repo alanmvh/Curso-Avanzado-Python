@@ -36,5 +36,6 @@ def test_increase_1_000_000_times():
     assert var_counter4.count == 1_000_000
 
 
+# Uncomment in case that needs to run the function
 # test_increase_1_000_000_times()
 
