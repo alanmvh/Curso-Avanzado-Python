@@ -134,3 +134,164 @@ time_functools = timeit.repeat(
 Timeit results:
 
 ![timeit](images/Excercise3_timeit.png)
+
+> Generation of equidistant arrays - 04
+
+Generate 11 values equally distribted betwwn range -2 , +2 using `numpy.linspace`
+
+Code:
+
+```py
+# import of numpy module
+import numpy as np
+# numpy.linspace(start, stop, num=X)
+np_values = np.linspace(-2, 2, num=11)
+```
+
+Result of array:
+![linspace](images/Excercise4_linspace.png)
+
+
+> `0` Matrix - 05
+
+Generate a matrix of 6*8 filled wit ceros:
+* Modify the index in `row 4, column 5` with value 3 
+* Modify `row 3, column 4` with value 6
+* Get value of `row 3` and get the avg value
+* Get `column 5` and avg value of the complete row
+* Get the transposed matrix and retrieve `row 4` and get the average of its values ​​
+* Retrieve `column 4` and get the average of its values.
+
+Code:
+
+```py
+#  Exercise 5
+cero_matrix = np.zeros((6,8))
+
+# Modify the index row 4, column 5 with value 3
+cero_matrix[3][4] = 3
+
+# Modify index  in row 3, column 4 with value 6
+cero_matrix[2][3] = 6
+
+# Matrix output:
+# [[0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 6. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 3. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0.]]
+
+# Get row 3 and calculate the avg of their values
+# Range: [0. 0. 0. 6. 0. 0. 0. 0.]
+# Avg = 0.75
+avg = cero_matrix[2, :].mean()
+
+# Get column 5 and obtain the avg value of the array
+# Output = 0.5
+avg_2 = cero_matrix[:, 4].mean()
+
+# Get transposed matrix and obtain row 4 - Calculate the avg of the values
+# Output : 1.0
+t_1 = cero_matrix.T[3, :].mean()
+
+# Get transposed matrix and obtain column 4 - Calculate the avg of the values
+# Output = 0.375
+t_2 = cero_matrix.T[:, 3].mean()
+```
+
+Why do we get these values?
+Average is calculated by sum(all elements in array) / number of elements, when we create a transpose matrix we do the following:
+
+![TMatrix](images/transpose_matrix.png)
+
+That means that we transpose Column -> Row & Row -> Column
+
+> `3-D` Matrix - 06
+
+* Create a vector x in a linealspace -10 - +10 with `11` numbers
+```py
+# Output = [-10.  -8.  -6.  -4.  -2.   0.   2.   4.   6.   8.  10.]
+v_x = np.linspace(-10, 10, num=11)
+```
+* Create vector y in a lineal space from `-10` - `+10` with 21 numbers
+```py
+# Output = [-10.  -9.  -8.  -7.  -6.  -5.  -4.  -3.  -2.  -1.   0.   1.   2.   3.   4.   5.   6.   7.   8.   9.  10.]
+v_y = np.linspace(-10, 10, num=21)
+```
+* Create a matrix `z` with `11x21` ceros
+```py
+# Output:
+# [[0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]
+#  [0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]]
+Z = np.zeros((11,21))
+```
+* Loops through indices 0 to 11 (exclusive) for an i, inside the iterator loops through indices 0 to 21 (exclusive) for a j. Inside both iterators get the xi of array x at index i (i.e. x[i]), get the yj of the array y at index j (i.e. y[j]).
+```py
+#Loops through indices 0 to 11 (exclusive) for an i, inside the iterator loops through indices 0 to 21 (exclusive) for a j.
+for i in range(len(v_x)):
+    for j in range(len(v_y)):
+        # Inside both iterators get the xi of array x at index i (i.e. x[i]).
+        print(f"Index i: {i} Value:{v_x[i]}")
+        # Inside both iterators get the yj of the array y at index j (i.e. y[j]).
+        print(f"Index j: {j} Value:{v_y[j]}")
+```
+* Calculate Z[i][j] = np.exp(-(xi ** 2 + yj ** 2))
+```py
+for i in range(len(v_x)):
+    for j in range(len(v_y)):
+        # Inside both iterators get the xi of array x at index i (i.e. x[i]).
+        print(f"Index i: {i} Value:{v_x[i]}")
+        # Inside both iterators get the yj of the array y at index j (i.e. y[j]).
+        print(f"Index j: {j} Value:{v_y[j]}")
+        
+        # Calculate Z[i][j] = np.exp(-(xi ** 2 + yj ** 2)).
+        Z[i][j] = np.exp(-(v_x[i] ** 2 + v_y[j] ** 2))
+```
+* Calculate the projected matrices of X and Y to graph in 3 dimensions
+```py
+Y, X = np.meshgrid(v_y, v_x)
+```
+* Create a graph with X, Y and Z
+```py
+
+ax = plt.figure().add_subplot(projection='3d')
+
+ax.plot_surface(X, Y, Z)
+
+```
+Result:
+![graph1](images/graphxyz.png)
+* Use `101` and `202` numbers instead 11 and 21
+```py
+v_x2 = np.linspace(-10, 10, num=101)
+v_y2 = np.linspace(-10, 10, num=201)
+Z2 = np.zeros((101,201))
+
+#Loops through indices 0 to 11 (exclusive) for an i, inside the iterator loops through indices 0 to 21 (exclusive) for a j.
+for i in range(len(v_x2)):
+    for j in range(len(v_y2)):
+        # Inside both iterators get the xi of array x at index i (i.e. x[i]).
+        print(f"Index i: {i} Value:{v_x2[i]}")
+        # Inside both iterators get the yj of the array y at index j (i.e. y[j]).
+        print(f"Index j: {j} Value:{v_y2[j]}")
+        
+        # Calculate Z[i][j] = np.exp(-(xi ** 2 + yj ** 2)).
+        Z2[i][j] = np.exp(-(v_x2[i] ** 2 + v_y2[j] ** 2))
+Y2, X2 = np.meshgrid(v_y2, v_x2)
+
+ax2 = plt.figure().add_subplot(projection='3d')
+ax2.plot_surface(X2, Y2, Z2)
+```
+* How does it look like when you apply the following expression ->  Z[i][j] = np.exp(-1e-3 * (x[i] ** 2 + y[j] ** 2))
+Result:
+![image](images/graphxyz2.png)
