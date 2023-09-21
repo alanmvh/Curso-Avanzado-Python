@@ -53,15 +53,15 @@ list_ex3_cubed2 = list(map(lambda a: a ** 3, filter(lambda b:b % 3 == 0, list_ex
 
 List 1 - Result:
 
-1[List1Ex2](images/Excercise2_list1.png)
+![List1Ex2](images/Excercise2_list1.png)
 
 List 2 - Result:
 
-1[List2Ex2](images/Excercise2_list2.png)
+![List2Ex2](images/Excercise2_list2.png)
 
 List 3 - Result:
 
-1[List3Ex2](images/Excercise2_list2.png)
+![List3Ex2](images/Excercise2_list2.png)
 
 > List Reduction - 03
 
