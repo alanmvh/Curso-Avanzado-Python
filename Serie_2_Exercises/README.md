@@ -2,7 +2,7 @@
 
 ## Lists
 
-> List mapping - 01
+### List mapping - 01
 
 Generate a list with numbers from 1 - 100 and generates the list of squared numbers using generated lists and also using the `map` function.
 
@@ -34,7 +34,7 @@ List 2 and 3:
 
 ![list23](images/Excercise1_list23.png)
 
-> Filter lists - 02
+### Filter lists - 02
 
 Generate a list with the numbers 3-57 (inclusive) from a range and generates cubed numbers which are multiples of 3 through generated lists and also through the filter function.
 
@@ -63,27 +63,27 @@ List 3 - Result:
 
 ![List3Ex2](images/Excercise2_list2.png)
 
-> List Reduction - 03
+### List Reduction - 03
 
 Generate a list of numbers 4 to 84 (exclusive) from a range and add all those that are multiples of 4 (for example, 4 + 8 + 12 + 16 + ... + 76 + 80). It uses the strategy by generated lists, the strategy by filters and also the strategy by reduces.
 
 Generated list:
 
 ```py
-# Sum of all list elements if multiples of 4 = Output: 312 -> Generated lists
+# Sum of all list elements if multiples of 4 = Output: 312 -###  Generated lists
 sum_generated_list = sum([i for i in e4_list if i % 4 == 0])
 ```
 
 Filter function: 
 
 ```py
-# Sum of all list elements if multiples of 4 = Output: 312 -> using Filter function
+# Sum of all list elements if multiples of 4 = Output: 312 -###  using Filter function
 sum_filter = sum(list( filter(lambda b:b%4==0, e4_list)))
 ```
 
 Reduce function:
 ```py
-# Sum of all list elements if multiples of 4 = Output: 312 -> using reduce
+# Sum of all list elements if multiples of 4 = Output: 312 -###  using reduce
 from functools import reduce
 
 sum_reduce = reduce(lambda a,b: a+b if (b%4==0) else a, e4_list)
@@ -135,7 +135,7 @@ Timeit results:
 
 ![timeit](images/Excercise3_timeit.png)
 
-> Generation of equidistant arrays - 04
+###  Generation of equidistant arrays - 04
 
 Generate 11 values equally distribted betwwn range -2 , +2 using `numpy.linspace`
 
@@ -152,7 +152,7 @@ Result of array:
 ![linspace](images/Excercise4_linspace.png)
 
 
-> `0` Matrix - 05
+###  `0` Matrix - 05
 
 Generate a matrix of 6*8 filled wit ceros:
 * Modify the index in `row 4, column 5` with value 3 
@@ -205,9 +205,9 @@ Average is calculated by sum(all elements in array) / number of elements, when w
 
 ![TMatrix](images/transpose_matrix.png)
 
-That means that we transpose Column -> Row & Row -> Column
+That means that we transpose Column -###  Row & Row -###  Column
 
-> `3-D` Matrix - 06
+###  `3-D` Matrix - 06
 
 * Create a vector x in a linealspace -10 - +10 with `11` numbers
 ```py
@@ -292,6 +292,6 @@ Y2, X2 = np.meshgrid(v_y2, v_x2)
 ax2 = plt.figure().add_subplot(projection='3d')
 ax2.plot_surface(X2, Y2, Z2)
 ```
-* How does it look like when you apply the following expression ->  Z[i][j] = np.exp(-1e-3 * (x[i] ** 2 + y[j] ** 2))
+* How does it look like when you apply the following expression -###   Z[i][j] = np.exp(-1e-3 * (x[i] ** 2 + y[j] ** 2))
 Result:
 ![image](images/graphxyz2.png)
