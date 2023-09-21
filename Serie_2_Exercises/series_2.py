@@ -41,6 +41,45 @@ sum_filter = sum(list( filter(lambda b:b%4==0, e4_list)))
 
 # Sum of all list elements if multiples of 4 = Output: 312 -> using reduce
 from functools import reduce
-
 sum_reduce = reduce(lambda a,b: a+b if (b%4==0) else a, e4_list)
-print(sum_reduce)
+
+# Time it section
+import timeit
+
+time_generated_list = timeit.repeat(
+    # Code that we want to measure
+    stmt="sum_generated_list = sum([i for i in e4_list if i % 4 == 0])",
+    # Setup details that need to be executed before stmt
+    setup="e4_list = [i for i in range(4,49)]",
+    # Times stmt will be executed as per the number is given
+    number=1,
+    repeat=5
+)
+
+time_filter_function = timeit.repeat(
+    # Code that we want to measure
+    stmt="sum_filter = sum(list(filter(lambda b:b%4==0, e4_list)))",
+    # Setup details that need to be executed before stmt
+    setup="e4_list = [i for i in range(4,49)]",
+    # Times stmt will be executed as per the number is given
+    number=1,
+    repeat=5
+)
+
+# list generated in stmt due to import error if 'from functools import reduce' not executed in setup
+time_functools = timeit.repeat(
+    # Code that we want to measure
+    stmt="sum_reduce = reduce(lambda a,b: a+b if (b%4==0) else a, [i for i in range(4,49)])",
+    # Setup details that need to be executed before stmt
+    setup= "from functools import reduce",
+    # Times stmt will be executed as per the number is given
+    number=1,
+    repeat=5
+)
+
+# Prints generated list execution time in miliseconds
+print(f"Time for generated list: {(sum(time_generated_list))/(len(time_generated_list))/1e-6}")
+# Prints filter function execution time in miliseconds
+print(f"Time for filter function: {(sum(time_filter_function))/(len(time_filter_function))/1e-6}")
+# Prints functools-reduce time in miliseconds
+print(f"Time functools.reduce: {(sum(time_functools))/(len(time_functools))/1e-6}")

@@ -89,3 +89,48 @@ from functools import reduce
 sum_reduce = reduce(lambda a,b: a+b if (b%4==0) else a, e4_list)
 print(sum_reduce)
 ```
+
+Which of the 3 is `more efficient`? Use `timeit` to measure performance.
+
+Generated list code:
+```py
+time_generated_list = timeit.repeat(
+    # Code that we want to measure
+    stmt="sum_generated_list = sum([i for i in e4_list if i % 4 == 0])",
+    # Setup details that need to be executed before stmt
+    setup="e4_list = [i for i in range(4,49)]",
+    # Times stmt will be executed as per the number is given
+    number=1,
+    repeat=5
+)
+```
+Filter function code:
+```py
+time_filter_function = timeit.repeat(
+    # Code that we want to measure
+    stmt="sum_filter = sum(list( filter(lambda b:b%4==0, e4_list)))",
+    # Setup details that need to be executed before stmt
+    setup="e4_list = [i for i in range(4,49)]",
+    # Times stmt will be executed as per the number is given
+    number=1,
+    repeat=5
+)
+```
+
+Reduce functools code:
+
+```py
+time_functools = timeit.repeat(
+    # Code that we want to measure
+    stmt="sum_reduce = reduce(lambda a,b: a+b if (b%4==0) else a, [i for i in range(4,49)])",
+    # Setup details that need to be executed before stmt
+    setup= "from functools import reduce",
+    # Times stmt will be executed as per the number is given
+    number=1,
+    repeat=5
+)
+```
+
+Timeit results:
+
+![timeit](images/Excercise3_timeit.png)
